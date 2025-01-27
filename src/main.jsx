@@ -4,7 +4,7 @@ import './styles.css'
 import { GaleriaImagenesApp } from './GaleriaImagenesApp'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+
     <GaleriaImagenesApp/>     
-  </StrictMode>,
+
 )

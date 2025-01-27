@@ -25,9 +25,9 @@ export const GaleriaImagenesApp = () => {
             return <li key={tema}>{tema}</li>
           })}
         </ol> */}
-      {temas.map((tema) =>{
-        return <FichaTema key={tema} titulo={tema}/>
-      })}
+      {temas.map((tema) =>(
+        <FichaTema key={tema} tema={tema}/>
+      ))}
          
       
        
