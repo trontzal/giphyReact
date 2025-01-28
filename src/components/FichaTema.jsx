@@ -1,33 +1,37 @@
 import { useEffect, useState } from "react"
 import {getGifs} from "../services/GetGifs"
+import { ImagenCard } from "./ImagenCard"
 
 export const FichaTema = ({tema}) => {
 
-const [imagenes, setImagenes] = useState([])
+  const [isLoading, setIsLoading] = useState([])
 
-const getLosGifs = async () => {
-  const losGifs = await getGifs(tema);
-  setImagenes(losGifs);
+  const [imagenes, setImagenes] = useState([])
+
+  const getLosGifs = async () => {
+    const losGifs = await getGifs(tema);
+    setImagenes(losGifs);
 
 
-}
+  }
 
-useEffect(  () =>{
-    getLosGifs()
-},[])
+  useEffect(  () =>{
+      getLosGifs()
+  },[])
   
 
 
   return (
     <>
-    
-    <h3>{tema}</h3>
-    {
-      imagenes.map( (imagen) => (
-        <p key={imagen.id}>{imagen.title}</p>
-        
-      ))
-    }
+    <h2>{tema}</h2>
+
+    <div className="card-grid">
+      {
+        imagenes.map( ({id, title, imageUrl}) => (
+          <ImagenCard key={id} imageUrl = {imageUrl} titulo={title}/>
+        ))
+      }
+    </div>
     
     </>
     
